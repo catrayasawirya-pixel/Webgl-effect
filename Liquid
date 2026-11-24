@@ -1,0 +1,7 @@
+vec2 liquid(vec2 uv,float freq1,float freq2,float spread1,float spread2){
+    float i = iTime;
+    float d = length(uv);
+    float a = atan(uv.y,uv.x);
+    uv = vec2(cos(a+sin(d*freq1+i)*(spread1/10.0)),sin(a+sin(d*freq1+i)*(spread1/10.0)))*(d*(sin(a*freq2)*(spread2/10.0)+1.0));
+    return uv;
+}
