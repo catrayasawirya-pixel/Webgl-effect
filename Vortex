@@ -1,0 +1,9 @@
+vec2 vortex(vec2 uv,float twist,float warped){
+    float d = length(uv);
+    float a = atan(uv.y,uv.x)+twist/d;
+    uv = vec2(cos(a),sin(a))*d;
+    float d2 = length(uv);
+    float a2 = atan(uv.y,uv.x);
+    uv = vec2(mix(cos(a2)*d2,d2/cos(a2/2.0),clamp(sign(mod(warped/2.0+0.5,2.0)-1.0),0.0,1.0)),sin(a2)*d2);
+    return uv;
+}
