@@ -1,6 +1,0 @@
-vec2 punch(vec2 uv,float base,float spin,float zoom){
-    float d = length(uv);
-    float a = atan(uv.y,uv.x);
-    uv = (vec2(cos(a+spin),sin(a+spin))*abs(base)/2.0+vec2(cos(a),sin(a))*d)*abs(zoom);
-    return uv;
-}
