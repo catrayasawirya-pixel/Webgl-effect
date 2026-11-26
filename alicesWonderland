@@ -1,0 +1,11 @@
+vec2 alicewon(vec2 uv,float curls,float doubles,float spin){
+    float i = iTime;
+    float d = length(uv);
+    float a = atan(uv.y,uv.x)+spin;
+    uv = vec2(cos(a),sin(a))*d*(sin(spin)*0.5+1.0)*2.0;
+    uv = mix(uv,(uv-0.5)/dot((uv-0.5),(uv-0.5))+0.5,clamp(sign(mod(doubles+0.5,2.0)-1.0),0.0,1.0));
+    float d2 = length(uv);
+    float a2 = atan(uv.y,uv.x);
+    uv = mod(vec2(log(pow(d2,2.0))+a2,a2*abs(curls)+log(d2)/2.0)/6.281*vec2(abs(curls),abs(curls))+mod(i/5.0,1.0),1.0)*2.0-1.0;
+    return uv;
+}
