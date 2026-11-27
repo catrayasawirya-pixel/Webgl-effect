@@ -1,0 +1,6 @@
+vec2 pinwheel(vec2 uv,float ring,float angle){
+    float d = length(uv);
+    float a = atan(uv.y,uv.x);
+    uv = mod(vec2(d*ring,a/6.281*angle),1.0)*2.0-1.0;
+    return uv;
+}
