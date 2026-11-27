@@ -1,0 +1,6 @@
+vec2 bendo(vec2 uv,float angle,float base){
+    float d = length(uv);
+    float a = atan(uv.y,uv.x)*angle;
+    uv = vec2(cos(a),sin(a))*pow(d,abs(base)/5.0);
+    return uv;
+}
